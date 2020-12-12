@@ -28,8 +28,8 @@
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li>
-              <a href="">Angular Connect</a>
+            <li *ngFor="let event of events">
+              <a href="" [routerLink]="['/events', event.id]">{{event.name | uppercase}}</a>
             </li>
           </ul>
         </li>
@@ -38,7 +38,7 @@
         <ul class="nav navbar-nav">
           <li>
             <a *ngIf="!auth.isAuthenticated()" [routerLink]="['user/login']"
-              >Log in</a
+              >Log In</a
             >
             <a *ngIf="auth.isAuthenticated()" [routerLink]="['user/profile']"
               >Welcome, {{ auth.currentUser.firstName }}!</a
