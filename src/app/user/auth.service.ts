@@ -43,4 +43,11 @@ export class AuthService {
 
     return this.http.put(`/api/users/${this.currentUser.id}`, this.currentUser, options);
   }
+
+  logOut() {
+    this.currentUser = undefined;
+    let options = { headers: new HttpHeaders({ 'ContentType': 'application/json' }) };
+    
+    return this.http.post('/api/logout', {}, options)
+  }
 }
