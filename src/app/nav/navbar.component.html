@@ -41,7 +41,7 @@
               >Log in</a
             >
             <a *ngIf="auth.isAuthenticated()" [routerLink]="['user/profile']"
-              >Welcome {{ auth.currentUser.firstName }}</a
+              >Welcome, {{ auth.currentUser.firstName }}!</a
             >
           </li>
         </ul>
