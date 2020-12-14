@@ -22,7 +22,7 @@ export class VoterService {
 
       const options = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
       const url = `api/events/${eventId}/sessions/${session.id}/voters/${voterName}`;
-      return this.http.post(url, {}, options)
+      this.http.post(url, {}, options)
           .pipe(catchError(this.handleError('addVoter')))
           .subscribe();
   }
