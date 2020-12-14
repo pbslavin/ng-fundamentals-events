@@ -1,6 +1,6 @@
 import { VoterService } from './voter.service';
 import { Session } from '../shared/event.model';
-import { Observable, of } from 'rxjs';
+import { of } from 'rxjs';
 
 describe('VoterService', () => {
     let voterService: VoterService,

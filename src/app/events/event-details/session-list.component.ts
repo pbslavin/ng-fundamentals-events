@@ -14,9 +14,12 @@ export class SessionListComponent implements OnChanges {
   @Input() eventId: number;
   visibleSessions: Session[] = [];
 
-  constructor(private auth: AuthService, private voterService: VoterService ) {}
+  constructor(private auth: AuthService, private voterService: VoterService ) {
+    console.log('new SessionListComponent');
+  }
 
   ngOnChanges() {
+    console.log('ngOnChanges');
     if (this.sessions) {
       this.filterSessions(this.filterBy);
       this.sortBy === 'name' 
