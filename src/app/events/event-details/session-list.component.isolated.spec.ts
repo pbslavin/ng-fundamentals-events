@@ -1,4 +1,4 @@
-import { SessionListComponent } from './app-session-list.component';
+import { SessionListComponent } from './session-list.component';
 import { Session } from '../shared/event.model';
 
 describe('SessionListComponent', () => {

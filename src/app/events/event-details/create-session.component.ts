@@ -7,7 +7,7 @@ import { Session, restrictedWords } from '../shared/index';
 
 @Component({
   selector: 'app-create-session',
-  templateUrl: 'app-create-session.component.html',
+  templateUrl: 'create-session.component.html',
   styles: [
     `
       em {

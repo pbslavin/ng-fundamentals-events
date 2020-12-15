@@ -3,7 +3,7 @@ import { Event } from './shared/index';
 
 @Component({
     selector: 'app-event-thumbnail',
-    templateUrl: './app-event-thumbnail.component.html',
+    templateUrl: './event-thumbnail.component.html',
     styles: [`
         .thumbnail { min-height: 210px; }
         .pad-left { margin-left: 10px; }

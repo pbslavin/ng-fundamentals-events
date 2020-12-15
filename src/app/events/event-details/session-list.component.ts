@@ -5,7 +5,7 @@ import { Session } from '../shared';
 
 @Component({
   selector: 'app-session-list',
-  templateUrl: './app-session-list.component.html',
+  templateUrl: './session-list.component.html',
 })
 export class SessionListComponent implements OnChanges {
   @Input() sessions: Session[];

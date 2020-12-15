@@ -1,6 +1,6 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
-import { SessionListComponent } from './app-session-list.component';
+import { SessionListComponent } from './session-list.component';
 import { AuthService } from '../../user/auth.service';
 import { VoterService } from './voter.service';
 import { Session } from '../shared/event.model';
