@@ -21,7 +21,7 @@ describe('SessionListComponent', () => {
             currentUser: {userName: 'Joe'}
         };
         let mockVoterService = {
-            userHasVoted: true
+            userHasVoted: () => true
         };
 
         TestBed.configureTestingModule({
@@ -42,6 +42,9 @@ describe('SessionListComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(SessionListComponent);
+        console.log('before')
+        console.log(fixture);
+        console.log('after')
         component = fixture.componentInstance;
         debugEl = fixture.debugElement;
         element = fixture.nativeElement;
@@ -64,9 +67,10 @@ describe('SessionListComponent', () => {
             component.eventId = 4;
 
             component.ngOnChanges();
-            fixture.detectChanges;
+            fixture.detectChanges();
 
-            expect(element.querySelector('[well-title]').textContent).toContain('Session 1');
+            expect(element.querySelector('[well-title]').textContent)
+                .toContain('Session 1');
         });
     });
 });
