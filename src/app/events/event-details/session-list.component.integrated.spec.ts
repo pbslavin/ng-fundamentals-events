@@ -42,9 +42,6 @@ describe('SessionListComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(SessionListComponent);
-        console.log('before')
-        console.log(fixture);
-        console.log('after')
         component = fixture.componentInstance;
         debugEl = fixture.debugElement;
         element = fixture.nativeElement;
