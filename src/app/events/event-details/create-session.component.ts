@@ -1,13 +1,13 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
-import { Location } from "@angular/common";
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
-import { Session, restrictedWords } from "../shared/index";
+import { Session, restrictedWords } from '../shared/index';
 
 @Component({
-  selector: "create-session",
-  templateUrl: "create-session.component.html",
+  selector: 'app-create-session',
+  templateUrl: 'app-create-session.component.html',
   styles: [
     `
       em {
@@ -48,16 +48,21 @@ export class CreateSessionComponent implements OnInit {
   constructor(private router: Router, private location: Location) {}
 
   ngOnInit() {
-    this.name = new FormControl("", Validators.required);
-    this.presenter = new FormControl("", Validators.required);
-    this.duration = new FormControl("", Validators.required);
-    this.level = new FormControl("", [Validators.required, () => { return (control: FormControl): { [key: string]: any } => {
-      return { "error": "its broken"};
-    }}]);
-    this.abstract = new FormControl("", [
+    this.name = new FormControl('', Validators.required);
+    this.presenter = new FormControl('', Validators.required);
+    this.duration = new FormControl('', Validators.required);
+    this.level = new FormControl('', [
+      Validators.required,
+      () => {
+        return (control: FormControl): { [key: string]: any } => {
+          return { error: 'its broken' };
+        };
+      },
+    ]);
+    this.abstract = new FormControl('', [
       Validators.required,
       Validators.maxLength(400),
-      restrictedWords(["foo", "bar"]),
+      restrictedWords(['foo', 'bar']),
     ]);
 
     this.newSessionForm = new FormGroup({
@@ -70,7 +75,7 @@ export class CreateSessionComponent implements OnInit {
   }
 
   saveSession(formValues) {
-    let session: Session = {
+    const session: Session = {
       id: undefined,
       name: formValues.name,
       duration: +formValues.duration,

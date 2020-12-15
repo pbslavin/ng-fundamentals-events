@@ -1,15 +1,15 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { User } from "./user.model";
+import { User } from './user.model';
 @Injectable()
 export class AuthService {
   constructor(private http: HttpClient) {}
   currentUser: User;
   loginUser(userName: string, password: string) {
-    let loginInfo = { username: userName, password: password };
-    let options = { headers: new HttpHeaders({ 'ContentType': 'application/json' }) };
+    const loginInfo = { username: userName, password: password };
+    const options = { headers: new HttpHeaders({ 'ContentType': 'application/json' }) };
 
 
     return this.http.post('/api/login', loginInfo, options) // pipe() creates a side effect instead of subscribing.
@@ -23,7 +23,7 @@ export class AuthService {
 
   isAuthenticated() {
     return !!this.currentUser;
-  }  
+  }
 
   checkAuthenticatedStatus() {
     this.http.get('/api/currentIdentity')
@@ -39,15 +39,15 @@ export class AuthService {
     this.currentUser.firstName = firstName;
     this.currentUser.lastName = lastName;
 
-    let options = { headers: new HttpHeaders({ 'ContentType': 'application/json' }) };
+    const options = { headers: new HttpHeaders({ 'ContentType': 'application/json' }) };
 
     return this.http.put(`/api/users/${this.currentUser.id}`, this.currentUser, options);
   }
 
   logOut() {
     this.currentUser = undefined;
-    let options = { headers: new HttpHeaders({ 'ContentType': 'application/json' }) };
-    
-    return this.http.post('/api/logout', {}, options)
+    const options = { headers: new HttpHeaders({ 'ContentType': 'application/json' }) };
+
+    return this.http.post('/api/logout', {}, options);
   }
 }

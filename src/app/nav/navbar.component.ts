@@ -9,7 +9,7 @@ import { EventListResolver } from '../events';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'nav-bar',
+    selector: 'app-navbar',
     templateUrl: './navbar.component.html',
     styles: [`
         .nav.navbar-nav { font-size: 15px; }
@@ -19,7 +19,7 @@ import { ActivatedRoute } from '@angular/router';
     `]
 })
 export class NavBarComponent implements OnInit {
-    searchTerm: string = "";
+    searchTerm = '';
     foundSessions: Session[];
     events: Event[];
 
@@ -36,6 +36,6 @@ export class NavBarComponent implements OnInit {
         this.eventService.searchSessions(searchTerm).subscribe((sessions: Session[]) => {
             this.foundSessions = sessions;
             console.log(this.foundSessions);
-        })
+        });
     }
 }

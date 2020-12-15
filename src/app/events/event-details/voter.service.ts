@@ -14,7 +14,7 @@ export class VoterService {
       const url = `api/events/${eventId}/sessions/${session.id}/voters/${voterName}`;
       this.http.delete(url)
         .pipe(catchError(this.handleError('deleteVoter')))
-        .subscribe(); 
+        .subscribe();
   }
 
   addVoter(eventId: number, session: Session, voterName: string) {
@@ -35,6 +35,6 @@ export class VoterService {
       return (error: any): Observable<T> => {
         console.error(error);
         return of(result as T);
-      }
+      };
     }
 }

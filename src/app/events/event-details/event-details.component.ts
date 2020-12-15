@@ -1,13 +1,13 @@
 import { ThrowStmt } from '@angular/compiler';
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Params } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { EventService } from "../shared/event.service";
-import { Event, Session } from "../shared/index";
+import { EventService } from '../shared/event.service';
+import { Event, Session } from '../shared/index';
 
 @Component({
-  templateUrl: "./event-details.component.html",
+  templateUrl: './event-details.component.html',
   styles: [
     `
       .container {
@@ -28,8 +28,8 @@ import { Event, Session } from "../shared/index";
 export class EventDetailsComponent implements OnInit {
   event: Event;
   addMode: boolean;
-  filterBy: string = 'all';
-  sortBy: string = 'votes';
+  filterBy = 'all';
+  sortBy = 'votes';
 
   constructor(
     private eventService: EventService,
@@ -40,7 +40,7 @@ export class EventDetailsComponent implements OnInit {
     this.route.data.forEach(data => {
       this.event = data['event'];
       this.addMode = false;
-    })
+    });
   }
 
   addSession() {

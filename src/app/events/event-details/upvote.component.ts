@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-    selector: 'upvote',
+    selector: 'app-upvote',
     template: `
         <div class="votingWidgetContainer pointable" (click)="onClick()">
             <div class="well votingWidget">

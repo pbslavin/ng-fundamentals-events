@@ -1,11 +1,11 @@
-import { Component, Input, OnChanges } from "@angular/core";
+import { Component, Input, OnChanges } from '@angular/core';
 import { AuthService } from '../../user/auth.service';
 import { VoterService } from './voter.service';
-import { Session } from "../shared";
+import { Session } from '../shared';
 
 @Component({
-  selector: "session-list",
-  templateUrl: "./session-list.component.html",
+  selector: 'app-session-list',
+  templateUrl: './app-session-list.component.html',
 })
 export class SessionListComponent implements OnChanges {
   @Input() sessions: Session[];
@@ -14,15 +14,12 @@ export class SessionListComponent implements OnChanges {
   @Input() eventId: number;
   visibleSessions: Session[] = [];
 
-  constructor(private auth: AuthService, private voterService: VoterService ) {
-    console.log('new SessionListComponent');
-  }
+  constructor(private auth: AuthService, private voterService: VoterService ) {}
 
   ngOnChanges() {
-    console.log('ngOnChanges');
     if (this.sessions) {
       this.filterSessions(this.filterBy);
-      this.sortBy === 'name' 
+      this.sortBy === 'name'
         ? this.visibleSessions.sort(sortByNameAsc)
         : this.visibleSessions.sort(sortByVotesDesc);
     }
@@ -33,7 +30,7 @@ export class SessionListComponent implements OnChanges {
      this.voterService.deleteVoter(this.eventId, session, this.auth.currentUser.userName);
     } else {
       this.voterService.addVoter(this.eventId, session, this.auth.currentUser.userName);
-    };
+    }
     if (this.sortBy === 'votes') {
       this.visibleSessions.sort(sortByVotesDesc);
     }

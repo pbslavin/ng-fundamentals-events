@@ -1,17 +1,17 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
-import { RouterModule } from "@angular/router";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import {
   SimpleModalComponent,
-  CollapsibleWell,
+  CollapsibleWellComponent,
   TOASTR_TOKEN,
   JQ_TOKEN,
   Toastr,
   ModalTriggerDirective
-} from './common/index'
+} from './common/index';
 import {
   EventListComponent,
   EventThumbnailComponent,
@@ -26,16 +26,16 @@ import {
   VoterService,
   LocationValidator,
   EventResolver
-} from "./events/index";
+} from './events/index';
 
-import { AppComponent } from "./app.component";
-import { NavBarComponent } from "./nav/navbar.component";
-import { Error404Component } from "./errors/404.component";
-import { appRoutes } from "./routes";
-import { AuthService } from "./user/auth.service";
+import { AppComponent } from './app.component';
+import { NavBarComponent } from './nav/navbar.component';
+import { Error404Component } from './errors/404.component';
+import { appRoutes } from './routes';
+import { AuthService } from './user/auth.service';
 
-let toastr: Toastr = window['toastr'];
-let jQuery = window['$'];
+const toastr: Toastr = window['toastr'];
+const jQuery = window['$'];
 
 @NgModule({
   imports: [
@@ -55,7 +55,7 @@ let jQuery = window['$'];
     Error404Component,
     CreateSessionComponent,
     SessionListComponent,
-    CollapsibleWell,
+    CollapsibleWellComponent,
     DurationPipe,
     SimpleModalComponent,
     ModalTriggerDirective,
@@ -68,16 +68,16 @@ let jQuery = window['$'];
     EventResolver,
     AuthService,
     VoterService,
-    { 
+    {
       provide: TOASTR_TOKEN,
-      useValue: toastr 
-    },
-    { 
-      provide: JQ_TOKEN,
-      useValue: jQuery 
+      useValue: toastr
     },
     {
-      provide: "canDeactivateCreateEvent",
+      provide: JQ_TOKEN,
+      useValue: jQuery
+    },
+    {
+      provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState,
     },
   ],
@@ -90,7 +90,7 @@ Checks like this would normally be imported. */
 export function checkDirtyState(component: CreateEventComponent): boolean {
   if (component.isDirty) {
     return window.confirm(
-      "You have not saved the new event. Select 'OK' to leave or 'Cancel' to stay."
+      'You have not saved the new event. Select \'OK\' to leave or \'Cancel\' to stay.'
     );
   }
   return true;

@@ -1,8 +1,8 @@
-import { Component } from "@angular/core";
-import { Router } from "@angular/router";
-import { AuthService } from "../user/auth.service";
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../user/auth.service';
 @Component({
-  templateUrl: "./login.component.html",
+  templateUrl: './login.component.html',
   styles: [
     `
       em {
@@ -24,16 +24,15 @@ export class LoginComponent {
   login(values) {
     this.authService.loginUser(values.userName, values.password)
       .subscribe(resp => {
-        if (!resp)
-        {
+        if (!resp) {
           this.loginInvalid = true;
         } else {
-          this.router.navigate(["/events"]);
+          this.router.navigate(['/events']);
         }
       });
   }
 
   handleCancel() {
-    this.router.navigate(["/events"]);
+    this.router.navigate(['/events']);
   }
 }

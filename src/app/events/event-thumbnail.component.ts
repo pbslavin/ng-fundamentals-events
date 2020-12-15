@@ -2,8 +2,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Event } from './shared/index';
 
 @Component({
-    selector: 'event-thumbnail',
-    templateUrl: './event-thumbnail.component.html',
+    selector: 'app-event-thumbnail',
+    templateUrl: './app-event-thumbnail.component.html',
     styles: [`
         .thumbnail { min-height: 210px; }
         .pad-left { margin-left: 10px; }
@@ -21,4 +21,4 @@ export class EventThumbnailComponent {
         return {};
     }
 }
-    
+
