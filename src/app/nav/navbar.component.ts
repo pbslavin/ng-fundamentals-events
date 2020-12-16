@@ -22,8 +22,10 @@ export class NavBarComponent implements OnInit {
     searchTerm = '';
     foundSessions: Session[];
     events: Event[];
+    auth: AuthService;
 
-    constructor(private auth: AuthService, private eventService: EventService, private route: ActivatedRoute) {
+    constructor(auth: AuthService, private eventService: EventService, private route: ActivatedRoute) {
+        this.auth = auth;
     }
 
     ngOnInit() {
